@@ -43,7 +43,7 @@ const Navbar = () => {
         <div className="hidden lg:flex items-center space-x-7">
           <Link to="/" className="text-gray-800 font-bold text-[12px] hover:text-primary transition-colors tracking-wide">HOME</Link>
           <a href="#about" onClick={scrollToAbout} className="text-gray-800 font-bold text-[12px] hover:text-primary transition-colors tracking-wide cursor-pointer">ABOUT US</a>
-          <Link to="#" className="text-gray-800 font-bold text-[12px] hover:text-primary transition-colors tracking-wide">ADMISSIONS</Link>
+          <Link to="/admissions" className="text-gray-800 font-bold text-[12px] hover:text-primary transition-colors tracking-wide">ADMISSIONS</Link>
           <Link to="/academics" className="text-gray-800 font-bold text-[12px] hover:text-primary transition-colors tracking-wide">ACADEMICS</Link>
           <Link to="/gallery" className="text-gray-800 font-bold text-[12px] hover:text-primary transition-colors tracking-wide">GALLERY</Link>
           
