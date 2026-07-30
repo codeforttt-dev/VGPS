@@ -42,9 +42,7 @@ const HeroSection = () => {
 
             {/* Description */}
             <p className="text-xs sm:text-sm lg:text-[15px] text-gray-700 font-medium mb-3 lg:mb-5 leading-snug sm:leading-relaxed shrink-0 max-w-xl">
-              At Valley Green Public School, we nurture curiosity, creativity
-              and confidence in every child through quality education, modern
-              learning and strong values.
+              At Valley Green Public School, we provide exceptional early childhood and primary education from <strong>Nursery to Class 5th</strong>, nurturing curiosity, creativity and confidence in every young mind through modern learning and strong values.
             </p>
 
             {/* Features Icons */}
@@ -143,7 +141,7 @@ const HeroSection = () => {
                     d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
                   ></path>
                 </svg>
-                APPLY NOW
+                TAKE ADMISSION
               </button>
               <button className="flex-1 sm:flex-none px-4 py-2.5 lg:px-7 lg:py-3 xl:px-8 xl:py-3.5 bg-transparent border-2 border-accent text-accent text-[10px] sm:text-[11px] lg:text-xs xl:text-sm font-bold rounded flex items-center justify-center hover:bg-accent hover:text-white transition-all hover:-translate-y-1">
                 <svg

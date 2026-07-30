@@ -29,7 +29,7 @@ const AboutSection = ({ showButton = true }) => {
   }, []);
 
   return (
-    <section id="about" ref={sectionRef} className="relative w-full min-h-screen bg-[#f8fcf9] flex flex-col font-sans pt-8 lg:pt-12 pb-16 lg:pb-24 overflow-x-hidden">
+    <section id="about" ref={sectionRef} className="relative w-full bg-[#f8fcf9] flex flex-col font-sans pt-8 lg:pt-12 pb-10 lg:pb-16 overflow-x-hidden">
       
       <div className={`max-w-[1440px] mx-auto w-full px-6 sm:px-10 lg:px-12 flex flex-col transition-all duration-1000 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'}`}>
         
@@ -79,7 +79,7 @@ const AboutSection = ({ showButton = true }) => {
             
             {/* Subheading */}
             <h3 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6 leading-tight">
-              Empowering Students for a <span className="text-primary">Better Tomorrow</span>
+              Nurturing Young Minds from <span className="text-primary">Nursery to Class 5th</span>
             </h3>
 
             {/* Short Paragraph (Essay bas thoda sa) */}
@@ -101,9 +101,9 @@ const AboutSection = ({ showButton = true }) => {
             {/* Know More About Us Button */}
             {showButton && (
               <div>
-                <Link to="/about" className="inline-block bg-primary hover:bg-primary-dark text-white px-8 py-3.5 rounded-lg shadow-lg font-bold text-xs lg:text-sm transition-all hover:-translate-y-1 flex items-center group cursor-pointer">
+                <Link to="/about" className="inline-flex items-center justify-center whitespace-nowrap bg-primary hover:bg-primary-dark text-white px-8 py-3.5 rounded-lg shadow-lg font-bold text-xs lg:text-sm transition-all hover:-translate-y-1 group cursor-pointer">
                   KNOW MORE ABOUT US
-                  <svg className="w-4 h-4 ml-3 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                  <svg className="w-4 h-4 ml-3 shrink-0 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
                 </Link>
               </div>
             )}

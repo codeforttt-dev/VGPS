@@ -44,11 +44,12 @@ const Navbar = () => {
           <Link to="/" className="text-gray-800 font-bold text-[12px] hover:text-primary transition-colors tracking-wide">HOME</Link>
           <a href="#about" onClick={scrollToAbout} className="text-gray-800 font-bold text-[12px] hover:text-primary transition-colors tracking-wide cursor-pointer">ABOUT US</a>
           <Link to="#" className="text-gray-800 font-bold text-[12px] hover:text-primary transition-colors tracking-wide">ADMISSIONS</Link>
-          <Link to="#" className="text-gray-800 font-bold text-[12px] hover:text-primary transition-colors tracking-wide">ACADEMICS</Link>
+          <Link to="/academics" className="text-gray-800 font-bold text-[12px] hover:text-primary transition-colors tracking-wide">ACADEMICS</Link>
+          <Link to="/gallery" className="text-gray-800 font-bold text-[12px] hover:text-primary transition-colors tracking-wide">GALLERY</Link>
           
-          <button className="bg-primary text-white px-5 py-2 rounded shadow-md font-bold text-[13px] hover:bg-primary-dark transition-all hover:-translate-y-0.5">
+          <Link to="/contact" className="bg-primary text-white px-5 py-2 rounded shadow-md font-bold text-[13px] hover:bg-primary-dark transition-all hover:-translate-y-0.5 inline-block text-center">
             CONTACT US
-          </button>
+          </Link>
         </div>
 
         {/* Mobile Menu Button */}
