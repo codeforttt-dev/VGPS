@@ -6,6 +6,7 @@ import Academics from '../page/public/Academics';
 import Contact from '../page/public/Contact';
 import Gallery from '../page/public/Gallery';
 import Admissions from '../page/public/Admissions';
+import AdmissionForm from '../page/public/AdmissionForm';
 
 const AppRoutes = () => {
   return (
@@ -15,6 +16,7 @@ const AppRoutes = () => {
       <Route path="/academics" element={<Academics />} />
       <Route path="/gallery" element={<Gallery />} />
       <Route path="/admissions" element={<Admissions />} />
+      <Route path="/admission-form" element={<AdmissionForm />} />
       <Route path="/contact" element={<Contact />} />
       {/* Add more routes here as needed */}
     </Routes>

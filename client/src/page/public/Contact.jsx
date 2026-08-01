@@ -9,6 +9,7 @@ const Contact = () => {
     inquiryFor: '',
     message: ''
   });
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -19,17 +20,40 @@ const Contact = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert('Thank you! Your inquiry has been submitted successfully. We will get back to you soon.');
-    setFormData({
-      name: '',
-      location: '',
-      mobile: '',
-      email: '',
-      inquiryFor: '',
-      message: ''
-    });
+    setLoading(true);
+    
+    try {
+      const response = await fetch('/api/inquiry', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
+      
+      const result = await response.json();
+      
+      if (response.ok) {
+        alert('Thank you! Your inquiry has been submitted successfully. We will get back to you soon.');
+        setFormData({
+          name: '',
+          location: '',
+          mobile: '',
+          email: '',
+          inquiryFor: '',
+          message: ''
+        });
+      } else {
+        alert(result.message || 'Error submitting inquiry. Please try again.');
+      }
+    } catch (error) {
+      console.error('Inquiry submission error:', error);
+      alert('An error occurred. Please try again later.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -258,16 +282,18 @@ const Contact = () => {
                     </div>
                   </div>
 
-                  {/* Submit Button */}
                   <div className="pt-2">
                     <button 
                       type="submit" 
-                      className="w-full bg-primary text-white font-black text-sm px-6 py-3 rounded-xl shadow-[0_10px_20px_rgba(26,71,49,0.3)] hover:bg-primary-dark hover:scale-[1.02] transition-all duration-300 flex items-center justify-center group"
+                      disabled={loading}
+                      className="w-full bg-primary text-white font-black text-sm px-6 py-3 rounded-xl shadow-[0_10px_20px_rgba(26,71,49,0.3)] hover:bg-primary-dark hover:scale-[1.02] transition-all duration-300 flex items-center justify-center group disabled:opacity-70 disabled:hover:scale-100"
                     >
-                      SUBMIT INQUIRY
-                      <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                      </svg>
+                      {loading ? 'SUBMITTING...' : 'SUBMIT INQUIRY'}
+                      {!loading && (
+                        <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                        </svg>
+                      )}
                     </button>
                   </div>
 

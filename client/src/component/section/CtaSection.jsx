@@ -22,7 +22,7 @@ const CtaSection = () => {
           Enroll them at Valley Green Public School. We are currently accepting admissions for <span className="font-bold">Nursery to Class 5th</span>. Give your child the foundation they deserve.
         </p>
         
-        <Link to="/contact" className="bg-primary text-white font-black text-xs sm:text-sm lg:text-base px-8 sm:px-12 py-4 rounded-full shadow-[0_10px_40px_rgba(26,71,49,0.3)] hover:bg-primary-dark hover:scale-105 transition-all duration-300 flex items-center group">
+        <Link to="/admission-form" className="bg-primary text-white font-black text-xs sm:text-sm lg:text-base px-8 sm:px-12 py-4 rounded-full shadow-[0_10px_40px_rgba(26,71,49,0.3)] hover:bg-primary-dark hover:scale-105 transition-all duration-300 flex items-center group">
           TAKE ADMISSION NOW
           <svg className="w-5 h-5 ml-3 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />

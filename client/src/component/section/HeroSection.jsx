@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   return (
@@ -127,7 +128,7 @@ const HeroSection = () => {
 
             {/* Buttons */}
             <div className="flex flex-row items-center space-x-2 sm:space-x-3 lg:space-x-4 w-full sm:w-auto shrink-0 pb-2">
-              <button className="flex-1 sm:flex-none px-4 py-2.5 lg:px-7 lg:py-3 xl:px-8 xl:py-3.5 bg-primary text-white text-[10px] sm:text-[11px] lg:text-xs xl:text-sm font-bold rounded shadow-lg flex items-center justify-center hover:bg-primary-dark transition-all hover:-translate-y-1">
+              <Link to="/admission-form" className="flex-1 sm:flex-none px-4 py-2.5 lg:px-7 lg:py-3 xl:px-8 xl:py-3.5 bg-primary text-white text-[10px] sm:text-[11px] lg:text-xs xl:text-sm font-bold rounded shadow-lg flex items-center justify-center hover:bg-primary-dark transition-all hover:-translate-y-1">
                 <svg
                   className="w-3.5 h-3.5 sm:w-4 sm:h-4 lg:w-5 lg:h-5 mr-1.5 lg:mr-2"
                   fill="none"
@@ -142,8 +143,8 @@ const HeroSection = () => {
                   ></path>
                 </svg>
                 TAKE ADMISSION
-              </button>
-              <button className="flex-1 sm:flex-none px-4 py-2.5 lg:px-7 lg:py-3 xl:px-8 xl:py-3.5 bg-transparent border-2 border-accent text-accent text-[10px] sm:text-[11px] lg:text-xs xl:text-sm font-bold rounded flex items-center justify-center hover:bg-accent hover:text-white transition-all hover:-translate-y-1">
+              </Link>
+              <Link to="/contact" className="flex-1 sm:flex-none px-4 py-2.5 lg:px-7 lg:py-3 xl:px-8 xl:py-3.5 bg-transparent border-2 border-accent text-accent text-[10px] sm:text-[11px] lg:text-xs xl:text-sm font-bold rounded flex items-center justify-center hover:bg-accent hover:text-white transition-all hover:-translate-y-1">
                 <svg
                   className="w-3.5 h-3.5 sm:w-4 sm:h-4 lg:w-5 lg:h-5 mr-1.5 lg:mr-2"
                   fill="none"
@@ -158,7 +159,7 @@ const HeroSection = () => {
                   ></path>
                 </svg>
                 EXPLORE
-              </button>
+              </Link>
             </div>
           </div>
         </div>
