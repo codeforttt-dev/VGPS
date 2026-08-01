@@ -71,8 +71,8 @@ const AdmissionForm = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      const API_URL = import.meta.env.VITE_API_URL || '';
-      const response = await fetch(`${API_URL}/api/admission`, {
+      const API_URL = import.meta.env.VITE_API_URL || '/api';
+      const response = await fetch(`${API_URL}/admission`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
