@@ -1,8 +1,5 @@
 import Inquiry from '../models/Inquiry.js';
 
-// @desc    Submit a new inquiry
-// @route   POST /api/inquiry
-// @access  Public
 export const submitInquiry = async (req, res) => {
   try {
     const { name, location, mobile, email, inquiryFor, message } = req.body;

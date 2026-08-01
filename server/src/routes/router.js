@@ -1,6 +1,6 @@
 import express from 'express';
-import { submitInquiry } from '../controllers/inquiryController.js';
-import { submitAdmission } from '../controllers/admissionController.js';
+import { submitInquiry } from '../controllers/inquiry.js';
+import { submitAdmission } from '../controllers/submitAdmission.js';
 
 const router = express.Router();
 

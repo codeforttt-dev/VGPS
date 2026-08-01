@@ -1,8 +1,5 @@
 import Admission from '../models/Admission.js';
 
-// @desc    Submit a new admission application
-// @route   POST /api/admission
-// @access  Public
 export const submitAdmission = async (req, res) => {
   try {
     const { 

@@ -10,14 +10,60 @@ const Contact = () => {
     message: ''
   });
   const [loading, setLoading] = useState(false);
+  const [errors, setErrors] = useState({});
+  const [showSuccessPopup, setShowSuccessPopup] = useState(false);
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    // Strict 200 character limit for message
-    if (name === 'message' && value.length > 200) {
+    let { name, value } = e.target;
+    
+    // Auto-capitalize first letter of each word for name field
+    if (name === 'name') {
+      value = value
+        .split(' ')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ');
+    }
+    
+    // Enforce +91 prefix and max 10 digits for mobile fields
+    if (name === 'mobile') {
+      if (!value.startsWith('+91 ')) {
+        setFormData({ ...formData, [name]: '+91 ' });
+        return;
+      }
+      const numberPart = value.substring(4).replace(/\D/g, ''); // Extract only digits
+      if (numberPart.length > 10) return; // Prevent typing more than 10 digits
+      
+      setFormData({ ...formData, [name]: '+91 ' + numberPart });
+      if (numberPart.length === 10) {
+        setErrors(prev => ({ ...prev, [name]: '' }));
+      }
       return;
     }
+    
     setFormData({ ...formData, [name]: value });
+    
+    // Clear email error on typing
+    if (name === 'email') {
+      setErrors(prev => ({ ...prev, email: '' }));
+    }
+  };
+
+  const handleBlur = (e) => {
+    const { name, value } = e.target;
+    
+    if (name === 'mobile') {
+      const numberPart = value.substring(4).trim();
+      if (numberPart.length > 0 && numberPart.length < 10) {
+        setErrors(prev => ({ ...prev, mobile: 'Must be 10 digits' }));
+      }
+    }
+    
+    if (name === 'email' && value.trim() !== '') {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(value)) {
+        setErrors(prev => ({ ...prev, email: 'Please enter a valid email address (e.g., example@gmail.com)' }));
+      }
+    }
   };
 
   const handleSubmit = async (e) => {
@@ -36,11 +82,11 @@ const Contact = () => {
       const result = await response.json();
       
       if (response.ok) {
-        alert('Thank you! Your inquiry has been submitted successfully. We will get back to you soon.');
+        setShowSuccessPopup(true);
         setFormData({
           name: '',
           location: '',
-          mobile: '',
+          mobile: '+91 ',
           email: '',
           inquiryFor: '',
           message: ''
@@ -212,28 +258,36 @@ const Contact = () => {
                     <h3 className="text-accent font-bold text-[10px] tracking-widest uppercase">Contact Details</h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div className="flex flex-col">
-                        <label htmlFor="mobile" className="text-gray-700 font-bold text-xs mb-1.5">Mobile Number *</label>
+                        <div className="flex justify-between items-end mb-1.5">
+                          <label htmlFor="mobile" className="text-gray-700 font-bold text-xs">Mobile Number *</label>
+                          {errors.mobile && <span className="text-red-500 font-bold text-[10px] animate-pulse">{errors.mobile}</span>}
+                        </div>
                         <input 
                           type="tel" 
                           id="mobile" 
                           name="mobile" 
                           required
-                          value={formData.mobile} 
+                          value={formData.mobile || '+91 '} 
                           onChange={handleChange}
+                          onBlur={handleBlur}
                           placeholder="+91 XXXXX XXXXX"
-                          className="bg-[#f8fcf9] border border-gray-200 rounded-lg px-3 py-2 text-gray-800 text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors"
+                          className={`bg-[#f8fcf9] border rounded-lg px-3 py-2 text-gray-800 text-sm focus:outline-none focus:ring-1 transition-colors ${errors.mobile ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : 'border-gray-200 focus:border-primary focus:ring-primary'}`}
                         />
                       </div>
                       <div className="flex flex-col">
-                        <label htmlFor="email" className="text-gray-700 font-bold text-xs mb-1.5">Email Address</label>
+                        <div className="flex justify-between items-end mb-1.5">
+                          <label htmlFor="email" className="text-gray-700 font-bold text-xs">Email Address</label>
+                          {errors.email && <span className="text-red-500 font-bold text-[10px] animate-pulse">Invalid email</span>}
+                        </div>
                         <input 
                           type="email" 
                           id="email" 
                           name="email" 
                           value={formData.email} 
                           onChange={handleChange}
-                          placeholder="e.g. rahul@example.com"
-                          className="bg-[#f8fcf9] border border-gray-200 rounded-lg px-3 py-2 text-gray-800 text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors"
+                          onBlur={handleBlur}
+                          placeholder="e.g. rahul@gmail.com"
+                          className={`bg-[#f8fcf9] border rounded-lg px-3 py-2 text-gray-800 text-sm focus:outline-none focus:ring-1 transition-colors ${errors.email ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : 'border-gray-200 focus:border-primary focus:ring-primary'}`}
                         />
                       </div>
                     </div>
@@ -306,6 +360,32 @@ const Contact = () => {
         </div>
       </div>
 
+      {/* Success Popup Modal */}
+      {showSuccessPopup && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center px-4">
+          <div 
+            className="absolute inset-0 bg-black/40 backdrop-blur-sm transition-opacity duration-300"
+            onClick={() => setShowSuccessPopup(false)}
+          ></div>
+          <div className="relative bg-white rounded-3xl shadow-2xl p-8 max-w-md w-full text-center animate-fade-in-up border border-gray-100 transform transition-all">
+            <div className="w-20 h-20 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-6 shadow-inner">
+              <svg className="w-10 h-10 text-green-500 animate-[bounce_1s_ease-in-out_infinite]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </div>
+            <h3 className="text-2xl font-black text-gray-800 mb-3 tracking-tight">Thank You!</h3>
+            <p className="text-gray-600 leading-relaxed mb-8 text-sm">
+              We have successfully received your inquiry at <span className="font-bold text-primary">Valley Green Public School</span>. Our team will get back to you shortly with all the details you need.
+            </p>
+            <button 
+              onClick={() => setShowSuccessPopup(false)}
+              className="w-full bg-primary hover:bg-primary-dark text-white font-bold py-3.5 px-6 rounded-xl transition-all duration-300 shadow-[0_8px_20px_rgba(26,71,49,0.25)] hover:shadow-[0_12px_25px_rgba(26,71,49,0.35)] hover:-translate-y-1"
+            >
+              Done
+            </button>
+          </div>
+        </div>
+      )}
 
     </div>
   );
