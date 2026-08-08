@@ -168,8 +168,8 @@ const HeroSection = () => {
         <div className="absolute top-0 right-0 w-full lg:w-[45%] h-full z-0 animate-fade-in-up animation-delay-200 hidden lg:block">
           <div className="absolute inset-0 bg-gradient-to-r from-[#f8fcf9] via-[#f8fcf9]/60 to-transparent z-10 w-32"></div>
           <img
-            src="https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=2070&auto=format&fit=crop"
-            alt="Students in front of school building"
+            src="/vgps-heroimage.png"
+            alt="Valley Green Public School Students"
             className="w-full h-full object-cover object-center lg:object-right [clip-path:polygon(10%_0,100%_0,100%_100%,0%_100%)] lg:[clip-path:polygon(15%_0,100%_0,100%_100%,0%_100%)]"
           />
         </div>

@@ -3,6 +3,7 @@ import AppRoutes from './routes/AppRoutes';
 import Navbar from './component/layout/Navbar';
 import FloatingAction from './component/layout/FloatingAction';
 import ScrollToTop from './component/layout/ScrollToTop';
+import Footer from './component/layout/Footer';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <main className="flex-grow">
         <AppRoutes />
       </main>
+      <Footer />
       <FloatingAction />
     </div>
   );

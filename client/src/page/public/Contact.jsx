@@ -161,8 +161,8 @@ const Contact = () => {
                   </div>
                   <div className="text-left flex-1">
                     <p className="text-gray-400 font-bold text-xs uppercase tracking-wider mb-1">Phone</p>
-                    <a href="tel:+919876543210" className="text-gray-800 font-bold text-base hover:text-primary transition-colors">
-                      +91 98765 43210
+                    <a href="tel:+917649801389" className="text-gray-800 font-bold text-base hover:text-primary transition-colors">
+                      +91 76498 01389
                     </a>
                   </div>
                 </div>
@@ -173,8 +173,8 @@ const Contact = () => {
                   </div>
                   <div className="text-left flex-1">
                     <p className="text-gray-400 font-bold text-xs uppercase tracking-wider mb-1">Email</p>
-                    <a href="mailto:info@vgps.edu" className="text-gray-800 font-bold text-base hover:text-primary transition-colors">
-                      info@vgps.edu
+                    <a href="mailto:vgps30529@gmail.com" className="text-gray-800 font-bold text-base hover:text-primary transition-colors">
+                      vgps30529@gmail.com
                     </a>
                   </div>
                 </div>
@@ -183,7 +183,7 @@ const Contact = () => {
                 <div className="w-full mt-auto mb-6">
                   <div className="w-full h-40 sm:h-48 rounded-xl overflow-hidden shadow-inner border border-gray-100">
                     <iframe 
-                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.617544078869!2d-73.98782398459424!3d40.74844097932847!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a9b3117469%3A0xd134e199a405a163!2sEmpire%20State%20Building!5e0!3m2!1sen!2sin!4v1655000000000!5m2!1sen!2sin" 
+                      src="https://maps.google.com/maps?q=26.2160752,78.1723394&hl=en&z=17&output=embed" 
                       width="100%" 
                       height="100%" 
                       style={{ border: 0 }} 
