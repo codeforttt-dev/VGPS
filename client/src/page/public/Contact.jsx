@@ -72,7 +72,7 @@ const Contact = () => {
     setLoading(true);
     
     try {
-      const API_URL = import.meta.env.VITE_API_URL || (window.location.hostname === 'localhost' ? 'http://localhost:5000/api' : '/api');
+      const API_URL = import.meta.env.VITE_API_URL || (window.location.hostname === 'localhost' ? 'http://localhost:5000/api' : 'https://api.valleygreenpublicschool.com/api');
       const response = await fetch(`${API_URL}/inquiry`, {
         method: 'POST',
         headers: {

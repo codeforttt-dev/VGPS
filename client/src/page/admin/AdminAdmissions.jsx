@@ -12,7 +12,7 @@ const AdminAdmissions = () => {
   const [selectedAdmission, setSelectedAdmission] = useState(null);
   const [deleteTarget, setDeleteTarget] = useState(null);
 
-  const API_URL = import.meta.env.VITE_API_URL || '/api';
+  const API_URL = import.meta.env.VITE_API_URL || (window.location.hostname === 'localhost' ? 'http://localhost:5000/api' : 'https://api.valleygreenpublicschool.com/api');
 
   useEffect(() => {
     fetchAdmissions();
