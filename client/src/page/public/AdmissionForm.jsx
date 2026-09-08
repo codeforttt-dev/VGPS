@@ -72,7 +72,7 @@ const AdmissionForm = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      const API_URL = import.meta.env.VITE_API_URL || '/api';
+      const API_URL = import.meta.env.VITE_API_URL || (window.location.hostname === 'localhost' ? 'http://localhost:5000/api' : '/api');
       const response = await fetch(`${API_URL}/admission`, {
         method: 'POST',
         headers: {
@@ -100,7 +100,7 @@ const AdmissionForm = () => {
       }
     } catch (error) {
       console.error('Submission error:', error);
-      alert('An error occurred. Please try again later.');
+      alert('Connection Error: Unable to reach the server. Please verify backend server status and API configuration.');
     } finally {
       setLoading(false);
     }

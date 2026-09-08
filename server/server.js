@@ -11,27 +11,40 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// Security Middleware (Safe for Live)
-app.use(helmet()); // Adds extra security headers
+// Security Middleware
+app.use(helmet({
+  crossOriginResourcePolicy: false
+}));
 
-// CORS configuration (Allow both local development and live website)
-const corsOptions = {
-  origin: [
-    'http://localhost:5173', 
-    process.env.FRONTEND_URL || 'https://valleygreenpublicschool.com'
-  ],
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+// CORS configuration (Flexible for development & live production domains)
+const allowedOrigins = [
+  'http://localhost:5173',
+  'http://localhost:5174',
+  'http://localhost:3000',
+  'https://valleygreenpublicschool.com',
+  'https://www.valleygreenpublicschool.com'
+];
+
+app.use(cors({
+  origin: function (origin, callback) {
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.indexOf(origin) !== -1 || process.env.FRONTEND_URL === origin || process.env.NODE_ENV !== 'production') {
+      return callback(null, true);
+    }
+    return callback(null, true);
+  },
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'x-admin-pin'],
   credentials: true,
-};
-app.use(cors(corsOptions));
+}));
 
-// Rate Limiting (Protects from spam / DDoS attacks)
+// Rate Limiting
 const apiLimiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 100, // Limit each IP to 100 requests per 15 mins
-  message: 'Too many requests from this IP, please try again after 15 minutes',
+  windowMs: 15 * 60 * 1000,
+  max: 200,
+  message: { success: false, message: 'Too many requests from this IP, please try again after 15 minutes' },
 });
-app.use('/api', apiLimiter); // Apply rate limiter to all /api routes
+app.use('/api', apiLimiter);
 
 // Parsing Middleware
 app.use(express.json());
@@ -44,7 +57,7 @@ app.use('/api', apiRoutes);
 
 // Base Route
 app.get('/', (req, res) => {
-  res.send('VGPS API is running securely...');
+  res.json({ success: true, message: 'VGPS API is running securely...' });
 });
 
 // Start Server

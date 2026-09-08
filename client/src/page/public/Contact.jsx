@@ -72,7 +72,7 @@ const Contact = () => {
     setLoading(true);
     
     try {
-      const API_URL = import.meta.env.VITE_API_URL || '/api';
+      const API_URL = import.meta.env.VITE_API_URL || (window.location.hostname === 'localhost' ? 'http://localhost:5000/api' : '/api');
       const response = await fetch(`${API_URL}/inquiry`, {
         method: 'POST',
         headers: {
@@ -98,7 +98,7 @@ const Contact = () => {
       }
     } catch (error) {
       console.error('Inquiry submission error:', error);
-      alert('An error occurred. Please try again later.');
+      alert('Connection Error: Unable to reach the server. Please verify backend server status and API configuration.');
     } finally {
       setLoading(false);
     }
