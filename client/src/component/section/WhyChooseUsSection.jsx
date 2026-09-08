@@ -29,7 +29,7 @@ const WhyChooseUsSection = () => {
       desc: "Our highly qualified and dedicated teachers focus on nurturing each student's potential.",
       icon: (
         <svg
-          className="w-6 h-6 text-primary"
+          className="w-6 h-6 text-primary group-hover:text-accent transition-colors duration-300"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -48,7 +48,7 @@ const WhyChooseUsSection = () => {
       desc: "Technology-enabled classrooms that make learning interactive, engaging and effective.",
       icon: (
         <svg
-          className="w-6 h-6 text-primary"
+          className="w-6 h-6 text-primary group-hover:text-accent transition-colors duration-300"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -67,7 +67,7 @@ const WhyChooseUsSection = () => {
       desc: "We focus on academics, sports, arts, and life skills for the overall growth of students.",
       icon: (
         <svg
-          className="w-6 h-6 text-primary"
+          className="w-6 h-6 text-primary group-hover:text-accent transition-colors duration-300"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -86,7 +86,7 @@ const WhyChooseUsSection = () => {
       desc: "A secure environment with CCTV surveillance and safety protocols for peace of mind.",
       icon: (
         <svg
-          className="w-6 h-6 text-primary"
+          className="w-6 h-6 text-primary group-hover:text-accent transition-colors duration-300"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -105,7 +105,7 @@ const WhyChooseUsSection = () => {
       desc: "A strong academic curriculum designed to encourage critical thinking and creativity.",
       icon: (
         <svg
-          className="w-6 h-6 text-primary"
+          className="w-6 h-6 text-primary group-hover:text-accent transition-colors duration-300"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -124,7 +124,7 @@ const WhyChooseUsSection = () => {
       desc: "World-class sports facilities and coaching to build teamwork, discipline and leadership.",
       icon: (
         <svg
-          className="w-6 h-6 text-primary"
+          className="w-6 h-6 text-primary group-hover:text-accent transition-colors duration-300"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -140,7 +140,7 @@ const WhyChooseUsSection = () => {
       desc: "Well-equipped labs, library, playgrounds and advanced learning resources.",
       icon: (
         <svg
-          className="w-6 h-6 text-primary"
+          className="w-6 h-6 text-primary group-hover:text-accent transition-colors duration-300"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -159,7 +159,7 @@ const WhyChooseUsSection = () => {
       desc: "We instill strong values, empathy and respect to shape responsible global citizens.",
       icon: (
         <svg
-          className="w-6 h-6 text-primary"
+          className="w-6 h-6 text-primary group-hover:text-accent transition-colors duration-300"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -225,7 +225,7 @@ const WhyChooseUsSection = () => {
             <div className="w-12 sm:w-16 h-[2px] bg-accent/40 rounded-full"></div>
           </div>
 
-          <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black text-primary tracking-tight uppercase mb-6 drop-shadow-sm">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-primary tracking-tight uppercase mb-4 drop-shadow-sm">
             CHOOSE US?
           </h2>
 
@@ -246,27 +246,40 @@ const WhyChooseUsSection = () => {
           </div>
         </div>
 
-        {/* Feature Grid */}
+        {/* Feature Grid (Ultra-Modern Interactive Design) */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 max-w-[1200px] w-full">
           {features.map((feature, index) => (
             <div
               key={index}
-              className="bg-white rounded-[1.5rem] p-8 flex flex-col items-center text-center shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] transition-all duration-300 hover:-translate-y-2 border border-gray-50/50"
+              className="group relative bg-white rounded-3xl p-6 lg:p-7 flex flex-col justify-between border border-emerald-100 hover:border-emerald-500 shadow-sm hover:shadow-[0_16px_35px_-4px_rgba(16,185,129,0.35),0_8px_20px_-4px_rgba(245,158,11,0.3)] transition-all duration-300 hover:-translate-y-1 overflow-hidden cursor-default"
             >
-              {/* Dual Circle Icon Design */}
-              <div className="relative w-20 h-20 mb-6">
-                <div className="absolute top-2 right-2 w-14 h-14 border-2 border-accent rounded-full transition-transform duration-300 group-hover:scale-105"></div>
-                <div className="absolute bottom-2 left-2 w-14 h-14 border-2 border-primary bg-white rounded-full flex items-center justify-center z-10">
-                  {feature.icon}
+              {/* Soft Gradient Hover Glow Backdrop */}
+              <div className="absolute inset-0 bg-gradient-to-br from-white via-emerald-50/30 to-amber-50/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+
+              <div>
+                {/* Top Row: Animated Icon + Number Badge */}
+                <div className="flex items-center justify-between mb-5 relative z-10">
+                  <div className="w-12 h-12 rounded-2xl bg-emerald-50 border border-emerald-100 group-hover:bg-primary group-hover:border-primary transition-all duration-300 flex items-center justify-center shadow-sm">
+                    {feature.icon}
+                  </div>
+                  <span className="text-xs font-black text-gray-300 group-hover:text-accent transition-colors duration-300">
+                    0{index + 1}
+                  </span>
                 </div>
+
+                {/* Title */}
+                <h3 className="text-primary font-black text-sm lg:text-[15px] uppercase tracking-wide mb-2.5 group-hover:text-emerald-950 transition-colors relative z-10">
+                  {feature.title}
+                </h3>
+
+                {/* Description */}
+                <p className="text-gray-600 font-medium text-xs lg:text-sm leading-relaxed relative z-10">
+                  {feature.desc}
+                </p>
               </div>
 
-              <h3 className="text-primary font-black text-sm lg:text-[15px] uppercase tracking-wide mb-3">
-                {feature.title}
-              </h3>
-              <p className="text-gray-500 font-medium text-xs lg:text-sm leading-relaxed">
-                {feature.desc}
-              </p>
+              {/* Expanding Accent Bottom Bar on Hover */}
+              <div className="w-8 h-1 bg-accent/40 group-hover:w-16 group-hover:bg-accent rounded-full transition-all duration-500 mt-5 relative z-10"></div>
             </div>
           ))}
         </div>

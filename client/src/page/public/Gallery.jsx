@@ -1,10 +1,16 @@
 import React from 'react';
+import SEO from '../../component/layout/SEO';
 import CtaSection from '../../component/section/CtaSection';
 import GallerySection from '../../component/section/GallerySection';
 
 const Gallery = () => {
   return (
     <div className="bg-[#f8fcf9] min-h-screen font-sans flex flex-col pt-[70px] lg:pt-[80px]">
+      <SEO 
+        title="Photo & Video Gallery | Valley Green Public School Gwalior"
+        description="Explore the photo & video gallery of Valley Green Public School Gwalior. See smart classrooms, annual events, sports, and student activities."
+        keywords="VGPS Gwalior photos, school gallery Gwalior, Valley Green Public School events, school activity videos Gwalior"
+      />
       
       {/* Page Header Banner */}
       <div className="relative w-full bg-primary py-8 lg:py-12 overflow-hidden flex flex-col items-center justify-center text-center px-6">
@@ -25,7 +31,7 @@ const Gallery = () => {
               Memories & Moments
             </span>
           </div>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white uppercase tracking-tight mb-4 drop-shadow-md">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white uppercase tracking-tight mb-3 drop-shadow-md">
             Our <span className="text-accent">Gallery</span>
           </h1>
           <p className="text-gray-200 font-medium max-w-2xl text-base lg:text-lg leading-relaxed">

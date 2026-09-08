@@ -1,4 +1,5 @@
 import React from 'react';
+import SEO from '../../component/layout/SEO';
 import CtaSection from '../../component/section/CtaSection';
 
 const Academics = () => {
@@ -27,6 +28,11 @@ const Academics = () => {
 
   return (
     <div className="bg-[#f8fcf9] min-h-screen font-sans flex flex-col pt-[70px] lg:pt-[80px]">
+      <SEO 
+        title="Academics & Curriculum | Valley Green Public School Gwalior"
+        description="Explore the academic curriculum from Nursery to Class 5th at Valley Green Public School Gwalior. Play-way methodology, smart classrooms, and experiential learning."
+        keywords="VGPS Gwalior academics, primary school curriculum Gwalior, nursery to 5th syllabus Gwalior, smart classrooms Gwalior"
+      />
       
       {/* Page Header Banner */}
       <div className="relative w-full bg-primary py-8 lg:py-12 overflow-hidden flex flex-col items-center justify-center text-center px-6">
@@ -47,8 +53,8 @@ const Academics = () => {
               Excellence in Education
             </span>
           </div>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white uppercase tracking-tight mb-4 drop-shadow-md">
-            Academics
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white uppercase tracking-tight mb-3 drop-shadow-md">
+            Academics & Curriculum
           </h1>
           <p className="text-gray-200 font-medium max-w-2xl text-base lg:text-lg leading-relaxed">
             Building a strong foundation for lifelong learning. Our curriculum is specially designed to nurture curiosity and foster holistic development for students from Nursery to Class 5th.

@@ -1,4 +1,5 @@
 import React from 'react';
+import SEO from '../../component/layout/SEO';
 import CtaSection from '../../component/section/CtaSection';
 import { Link } from 'react-router-dom';
 
@@ -49,6 +50,11 @@ const Admissions = () => {
 
   return (
     <div className="bg-[#f8fcf9] min-h-screen font-sans flex flex-col pt-[70px] lg:pt-[80px]">
+      <SEO 
+        title="School Admissions 2026-27 | Valley Green Public School Gwalior"
+        description="Apply for Nursery to Class 5th admissions at Valley Green Public School Gwalior. Check admission criteria, documents required, and seat availability."
+        keywords="VGPS Gwalior admissions, school admission Gwalior 2026, nursery admission Gwalior, class 1 to 5 admission Gwalior"
+      />
       
       {/* Page Header Banner */}
       <div className="relative w-full bg-primary py-8 lg:py-12 overflow-hidden flex flex-col items-center justify-center text-center px-6">
@@ -69,8 +75,8 @@ const Admissions = () => {
               Join Our Family
             </span>
           </div>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white uppercase tracking-tight mb-4 drop-shadow-md">
-            Admissions <span className="text-accent">Open</span>
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white uppercase tracking-tight mb-3 drop-shadow-md">
+            Admissions <span className="text-accent">Open 2026-27</span>
           </h1>
           <p className="text-gray-200 font-medium max-w-2xl text-base lg:text-lg leading-relaxed">
             Take the first step towards a bright future. We are currently accepting admissions for Nursery to Class 5th for the upcoming academic session.

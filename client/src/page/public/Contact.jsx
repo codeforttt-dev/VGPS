@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import SEO from '../../component/layout/SEO';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -105,6 +106,11 @@ const Contact = () => {
 
   return (
     <div className="bg-[#f8fcf9] min-h-screen font-sans flex flex-col pt-[70px] lg:pt-[80px]">
+      <SEO 
+        title="Contact Us & Location Map | Valley Green Public School Gwalior"
+        description="Contact Valley Green Public School in Gwalior, Madhya Pradesh. Call +91 76498 01389 or visit our campus for Nursery to Class 5th admissions & inquiry."
+        keywords="Contact VGPS Gwalior, Valley Green Public School phone number, VGPS Gwalior address, primary school location Gwalior"
+      />
       
       {/* Page Header Banner */}
       <div className="relative w-full bg-primary py-8 lg:py-12 overflow-hidden flex flex-col items-center justify-center text-center px-6">
@@ -120,7 +126,7 @@ const Contact = () => {
         </div>
         
         <div className="relative z-10 animate-fade-in-up">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white uppercase tracking-tight mb-4 drop-shadow-md">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white uppercase tracking-tight mb-3 drop-shadow-md">
             Contact <span className="text-accent">Us</span>
           </h1>
           <p className="text-gray-200 font-medium max-w-2xl text-base lg:text-lg leading-relaxed">

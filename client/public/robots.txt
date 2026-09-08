@@ -1,0 +1,6 @@
+# Robots.txt for Valley Green Public School Gwalior
+User-agent: *
+Allow: /
+
+# Sitemap Location for Google Search Console & Search Engines
+Sitemap: https://valleygreenpublicschool.com/sitemap.xml

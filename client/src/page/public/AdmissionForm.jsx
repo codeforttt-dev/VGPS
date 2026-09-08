@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import SEO from '../../component/layout/SEO';
 
 const AdmissionForm = () => {
   const [formData, setFormData] = useState({
@@ -107,6 +108,11 @@ const AdmissionForm = () => {
 
   return (
     <div className="bg-[#f8fcf9] min-h-screen font-sans flex flex-col pt-[70px] lg:pt-[80px]">
+      <SEO 
+        title="Online Admission Application | Valley Green Public School Gwalior"
+        description="Fill out the online admission form for Nursery to Class 5th at Valley Green Public School Gwalior. Quick and easy registration process."
+        keywords="VGPS Gwalior online admission form, school application Gwalior, admission nursery 5th Gwalior"
+      />
       
       {/* Page Header Banner */}
       <div className="relative w-full bg-primary py-8 lg:py-12 overflow-hidden flex flex-col items-center justify-center text-center px-6">
@@ -122,7 +128,7 @@ const AdmissionForm = () => {
         </div>
         
         <div className="relative z-10 animate-fade-in-up">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white uppercase tracking-tight mb-4 drop-shadow-md">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white uppercase tracking-tight mb-3 drop-shadow-md">
             Take <span className="text-accent">Admission</span>
           </h1>
           <p className="text-gray-200 font-medium max-w-2xl text-base lg:text-lg leading-relaxed">
