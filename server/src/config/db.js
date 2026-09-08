@@ -10,11 +10,12 @@ try {
 
 const connectDB = async () => {
   try {
-    if (!process.env.MONGODB_URI) {
-      console.warn("MONGODB_URI is not defined in .env file. Skipping MongoDB connection.");
+    const mongoUri = process.env.MONGODB_URI || process.env.MONGO_URI;
+    if (!mongoUri) {
+      console.warn("Neither MONGODB_URI nor MONGO_URI is defined in environment variables. Skipping MongoDB connection.");
       return;
     }
-    const conn = await mongoose.connect(process.env.MONGODB_URI);
+    const conn = await mongoose.connect(mongoUri);
     console.log('MongoDB connected successfully');
   } catch (error) {
     console.error('MongoDB connection error:', error.message);
@@ -22,5 +23,3 @@ const connectDB = async () => {
 };
 
 export default connectDB;
-
-
