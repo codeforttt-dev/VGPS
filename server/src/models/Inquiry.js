@@ -26,6 +26,11 @@ const inquirySchema = new mongoose.Schema({
     type: String,
     required: true,
     maxLength: 200,
+  },
+  status: {
+    type: String,
+    enum: ['New', 'In Progress', 'Resolved'],
+    default: 'New'
   }
 }, { timestamps: true });
 

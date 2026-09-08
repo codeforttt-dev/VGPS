@@ -34,6 +34,11 @@ const admissionSchema = new mongoose.Schema({
   location: {
     type: String,
     required: true,
+  },
+  status: {
+    type: String,
+    enum: ['Pending', 'Contacted', 'Confirmed', 'Rejected'],
+    default: 'Pending'
   }
 }, { timestamps: true });
 
