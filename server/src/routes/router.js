@@ -17,3 +17,4 @@ router.patch('/admission/:id', updateAdmissionStatus);
 router.delete('/admission/:id', deleteAdmission);
 
 export default router;
+//
